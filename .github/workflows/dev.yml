@@ -1,0 +1,50 @@
+---
+name: Build, Publish, and Deploy Frontend
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build_publish_deploy:
+    runs-on: ubuntu-latest
+    environment: DEV
+    env:
+      REACT_APP_ROAD_DEALER_LOGO: ${{ secrets.REACT_APP_ROAD_DEALER_LOGO }}
+      REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
+      REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+      REACT_APP_ACCESS_KEY_ID: ${{ secrets.REACT_APP_ACCESS_KEY_ID }}
+      REACT_APP_SECRET_ACCESS_KEY: ${{ secrets.REACT_APP_SECRET_ACCESS_KEY }}
+      REACT_APP_BUCKET_NAME: ${{ secrets.REACT_APP_BUCKET_NAME }}
+      REACT_APP_AWS_REGION: ${{ secrets.REACT_APP_AWS_REGION }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          
+      - name: Install dependencies
+        run: npm install --force
+          
+      - name: Build the frontend
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          npm run build
+        
+      - name: Publish the build as an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: roaddealer-ui-dev-build
+          path: build
+          
+      - name: Deploy to EC2
+        uses: easingthemes/ssh-deploy@main
+        env:
+          REMOTE_HOST: ${{ secrets.EC2_HOST }}
+          REMOTE_USER: ${{ secrets.EC2_USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+          SCRIPT_AFTER: |
+            sudo systemctl restart apache2

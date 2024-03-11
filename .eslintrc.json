@@ -1,0 +1,111 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        // "plugin:react/recommended",
+        // "standard-with-typescript",
+        // "airbnb",
+        "react-app",
+        "react-app/jest",
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "overrides": [],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "tsx": true,
+            "js": false
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": ["react", "@typescript-eslint", "prettier", "simple-import-sort", "const-case", "import"],
+    "ignorePatterns": ["**/*.js"],
+    "rules": {
+        "no-var": "error", //variable with var is not allowed use let or const
+        "no-multi-spaces": "error", // multiple spaces will not accept
+        "no-multiple-empty-lines": "error", // multiple empty lines will not accept
+        "const-case/uppercase": "error", //variable declared with const should be UPPERCASE only excluding functions arreys and objects
+        "no-nested-ternary": "off",
+        "@typescript-eslint/quotes": [
+            "error",
+            "double",
+            {
+                "avoidEscape": true // evrybe in double queotes only string should
+            }
+        ],
+        "import/prefer-default-export": "off", // it will off the single default export we can export multiples
+        "react/jsx-uses-react": ["error"],
+        "react-hooks/exhaustive-deps": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/no-array-index-key": "off",
+        "react/jsx-props-no-spreading": ["off"],
+        "react/prop-types": "off", // it is for props type if it is any then it will
+        "simple-import-sort/imports": [
+            "error",
+            {
+                "groups": [
+                    // `react` first, `next` second, then packages starting with a character
+                    ["^react$", "^next", "^[a-z]"],
+                    // Packages starting with `@`
+                    ["^@"],
+                    // Packages starting with `~`
+                    ["^~"],
+                    // Imports starting with `../`
+                    ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                    // Imports starting with `./`
+                    ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                    // Style imports
+                    ["^.+\\.s?css$"],
+                    // Side effect imports
+                    ["^\\u0000"]
+                ]
+            }
+        ], // it will sorts the imports perfect orderly {A,B,C}
+        "simple-import-sort/exports": "error", // it will sorts the exports perfect orderly {A,B,C}
+        // "@typescript-eslint/no-shadow": [
+        //     "error",
+        //     { "ignoreTypeValueShadow": true }
+        // ],
+        "@typescript-eslint/interface-name-prefix": "off", //this will off to start interface name with some prefix
+        "@typescript-eslint/explicit-function-return-type": "off", // this will of that the explicit function should have return compulsory
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": ["function", "interface"], // varible and function name convention rule
+                "format": ["PascalCase", "camelCase"],
+                "leadingUnderscore": "allow"
+            }
+        ],
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": ["arrow-function", "function-declaration"], // this is regarding function component with arrow and with function keyword
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+        "no-restricted-syntax": ["off"],
+        "import/no-cycle": [2, { "maxDepth": 2 }],
+        "no-trailing-spaces": "error",
+        "no-param-reassign": ["error", { "props": false }], // in reducer we have declared state params multiple times so to avoid that this rule declared
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto",
+                "printWidth": 150
+            },
+            { "usePrettierrc": true }
+        ]
+    }
+}

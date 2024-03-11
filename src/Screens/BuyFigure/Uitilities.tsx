@@ -1,0 +1,557 @@
+const years: string[] = [];
+export const generateYearsArray = (startYear: number): string[] => {
+    const currentYear = new Date().getFullYear();
+    for (let year = startYear; year <= currentYear; year += 1) {
+        years.push(year.toString());
+    }
+
+    return years;
+};
+generateYearsArray(1951);
+export const addBuyFigureForm = [
+    {
+        Label: "",
+        Required: true,
+        Name: "First_Name",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter First Name",
+        ErrorMessage: "First Name is required*",
+        Tooltip: "First Name",
+        HelperText: "",
+        Type: "text",
+        List: [],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "First Name",
+        PlaceHolder: "e.g john",
+        Disabled: false,
+        ReadOnly: true
+    },
+    {
+        Label: "",
+        Required: true,
+        Name: "Last_Name",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Last Name",
+        ErrorMessage: "Last Name is required*",
+        Tooltip: "Last Name",
+        HelperText: "",
+        Type: "text",
+        List: [],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Last Name",
+        PlaceHolder: "e.g doe",
+        Disabled: false,
+        ReadOnly: true
+    },
+    {
+        Label: "",
+        Required: true,
+        Name: "PhoneNumber",
+        InitialValue: "",
+        Regex: ["^\\s*\\d{10}\\s*$"],
+        RegExError: "Please enter Phone Number",
+        ErrorMessage: "Phone Number is required*",
+        Tooltip: "Phone Number",
+        HelperText: "",
+        Type: "phoneNumber",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Phone Number",
+        PlaceHolder: "Enter the Phone Number *",
+        Disabled: false,
+        ReadOnly: true
+    },
+    {
+        Label: "",
+        Required: true,
+        Name: "Email",
+        InitialValue: "",
+        Regex: ["^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9.-]+\\.)+[a-zA-Z]{2,7}$"],
+        RegExError: "Please enter Email",
+        ErrorMessage: "Email is required*",
+        Tooltip: "Email",
+        HelperText: "",
+        Type: "text",
+        List: [],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Email",
+        PlaceHolder: "Enter the Email",
+        Disabled: false,
+        ReadOnly: true
+    },
+    {
+        Label: "",
+        Required: true,
+        Name: "DealerName",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Dealership",
+        ErrorMessage: "Dealership is required*",
+        Tooltip: "Dealership",
+        HelperText: "",
+        Type: "select",
+        List: [],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Dealership",
+        PlaceHolder: "Select the Dealership",
+        Disabled: true,
+        ReadOnly: false
+    },
+    {
+        Label: "",
+        Required: false,
+        Name: "PN_Name",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Name",
+        ErrorMessage: "Role is required*",
+        Tooltip: "Parent Dealership Name",
+        HelperText: "",
+        Type: "select",
+        List: null,
+        Categery: "Dealer_Form",
+        Group: "Dealer_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Select Parent Dealership",
+        PlaceHolder: "Select Parent Dealership",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: true,
+        Name: "Year",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Year",
+        ErrorMessage: "Year is required*",
+        Tooltip: "Year",
+        HelperText: "",
+        Type: "select",
+        List: years,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Year",
+        PlaceHolder: "Select the Year",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: true,
+        Name: "Make",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Make",
+        ErrorMessage: "Make is required*",
+        Tooltip: "Make",
+        HelperText: "",
+        Type: "select",
+        List: [
+            {
+                label: "Mazda",
+                value: 1
+            },
+            {
+                label: "Rolls-Royce",
+                value: 2
+            },
+            {
+                label: "Porsche",
+                value: 3
+            },
+            {
+                label: "Aston Martin",
+                value: 4
+            },
+            {
+                label: "Maserati",
+                value: 5
+            },
+            {
+                label: "Jeep",
+                value: 6
+            },
+            {
+                label: "Dodge",
+                value: 7
+            },
+            {
+                label: "Porsche",
+                value: 8
+            },
+            {
+                label: "Aston Martin",
+                value: 9
+            },
+            {
+                label: "McLaren",
+                value: 10
+            },
+            {
+                label: "Ford",
+                value: 11
+            }
+        ],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Make",
+        PlaceHolder: "Select the Make",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: true,
+        Name: "Model",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Model",
+        ErrorMessage: "Model is required*",
+        Tooltip: "Model",
+        HelperText: "",
+        Type: "select",
+        List: [
+            {
+                label: "Mazda CX-5",
+                value: 1
+            },
+            {
+                label: "Cullinan",
+                value: 2
+            },
+            {
+                label: "718 Cayman",
+                value: 3
+            },
+            {
+                label: "DBX",
+                value: 4
+            },
+            {
+                label: "MC20",
+                value: 5
+            },
+            {
+                label: "Gladiator",
+                value: 6
+            },
+            {
+                label: "Viper",
+                value: 7
+            },
+            {
+                label: "911",
+                value: 8
+            },
+            {
+                label: "DBX",
+                value: 9
+            },
+            {
+                label: "600LT",
+                value: 10
+            },
+            {
+                label: "Fusion Hybrid",
+                value: 11
+            }
+        ],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Model",
+        PlaceHolder: "Select a Model",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: false,
+        Name: "Trim",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Low Trim",
+        ErrorMessage: "Low Year is Trim*",
+        Tooltip: "Trim",
+        HelperText: "",
+        Type: "text",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Trim",
+        PlaceHolder: "Enter the Trim",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: false,
+        Name: "OdometerReading",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Low Miles",
+        ErrorMessage: "Low Year is Miles*",
+        Tooltip: "Miles",
+        HelperText: "",
+        Type: "text",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Miles",
+        PlaceHolder: "Enter the Miles",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: false,
+        Name: "VIN",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter VIN",
+        ErrorMessage: "VIN is required*",
+        Tooltip: "VIN",
+        HelperText: "",
+        Type: "text",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "VIN",
+        PlaceHolder: "Enter the VIN",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: false,
+        Name: "Color",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Color",
+        ErrorMessage: "Color is required*",
+        Tooltip: "Color",
+        HelperText: "",
+        Type: "text",
+        List: [],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Color",
+        PlaceHolder: "Enter the Color",
+        Disabled: false
+    },
+    {
+        Label: "",
+        Required: false,
+        Name: "Description",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Description",
+        ErrorMessage: "Description is required*",
+        Tooltip: "Description",
+        HelperText: "",
+        Type: "TextArea",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "Description",
+        PlaceHolder: "Enter the Description",
+        Disabled: false
+    }
+];
+export const BuyFigureFilterManagement = [
+    {
+        Label: "Dealer Name",
+        Required: false,
+        Name: "DealerName",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Filter",
+        ErrorMessage: "Filter is required*",
+        Tooltip: "Dealer Name",
+        HelperText: "",
+        Type: "select",
+        List: [
+            { value: 1, label: "Karthik" },
+            { value: 2, label: "Gokul" }
+        ],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "",
+        PlaceHolder: "Filter 1",
+        Disabled: false
+    },
+    {
+        Label: "Year",
+        Required: false,
+        Name: "Year",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Filter",
+        ErrorMessage: "Filter is required*",
+        Tooltip: "Year",
+        HelperText: "",
+        Type: "select",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "",
+        PlaceHolder: "Filter 2",
+        Disabled: false
+    },
+    {
+        Label: "Make",
+        Required: false,
+        Name: "Make",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Filter",
+        ErrorMessage: "Filter is required*",
+        Tooltip: "Make",
+        HelperText: "",
+        Type: "select",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "",
+        PlaceHolder: "Filter 3",
+        Disabled: false
+    },
+    {
+        Label: "Model",
+        Required: false,
+        Name: "Model",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Filter",
+        ErrorMessage: "Filter is required*",
+        Tooltip: "Model",
+        HelperText: "",
+        Type: "select",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "",
+        PlaceHolder: "Filter 4",
+        Disabled: false
+    },
+    {
+        Label: "Status",
+        Required: false,
+        Name: "Status",
+        InitialValue: "",
+        Regex: [],
+        RegExError: "Please enter Status",
+        ErrorMessage: "Status is required*",
+        Tooltip: "Buy figure Status",
+        HelperText: "",
+        Type: "select",
+        List: [
+            { label: "Missed", value: "Missed" },
+            { label: "Won", value: "Won" },
+            { label: "Wholesale", value: "Wholesale" }
+        ],
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "",
+        PlaceHolder: "Filter 5",
+        Disabled: false
+    },
+    {
+        Label: "Private Network",
+        Required: false,
+        Name: "IsPrivateNetwork",
+        InitialValue: false,
+        Regex: [],
+        RegExError: "Please Select Private Network",
+        ErrorMessage: "Private Network is required*",
+        Tooltip: "Private Network",
+        HelperText: "",
+        Type: "switch",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "",
+        PlaceHolder: "",
+        Disabled: false
+    },
+    {
+        Label: "My Posts",
+        Required: false,
+        Name: "MyBuyFigure",
+        InitialValue: false,
+        Regex: [],
+        RegExError: "Please enter My BuyFigure",
+        ErrorMessage: "My BuyFigure is required*",
+        Tooltip: "My Posts",
+        HelperText: "",
+        Type: "switch",
+        List: null,
+        Categery: "BuyFigure_Form",
+        Group: "BuyFigure_Details",
+        MinValue: null,
+        MaxValue: null,
+        Multiple: 0,
+        Header: "",
+        PlaceHolder: "",
+        Disabled: false
+    }
+];
