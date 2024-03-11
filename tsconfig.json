@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+        "noFallthroughCasesInSwitch": true,
+        "paths": {
+            "Theme/theme-layouts/*": ["./src/Theme/theme-layouts/*"]
+        }
+    },
+    "rules": {
+        // Note: you must disable the base rule as it can report incorrect errors
+        "no-unused-vars": "on",
+        "@typescript-eslint/no-unused-vars": "error"
+    },
+    "exclude": ["node_modules", "build", "dist", "src/**/*.js", "src/**/*.jsx"],
+    "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/declaration.d.ts"]
+}
